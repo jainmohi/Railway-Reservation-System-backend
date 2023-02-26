@@ -1,19 +1,20 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.pojos.Train;
-
-import com.example.demo.servces.*;
+import com.example.demo.servces.AdminService;
 
 @CrossOrigin
 @RestController
@@ -40,8 +41,6 @@ public class AdminController
 	public Train findTrainByName(String name)
 	{
 		return AdminService.findTrainByName(name);
-		
-		
 	}
 	
 	
@@ -52,6 +51,16 @@ public class AdminController
 		Train train = findTrainByName(mp.get("trainName"));
 		
 		AdminService.removeTrainById(train.getTrain_code());
+		
+	}
+	
+	@GetMapping("/trainsList")
+	public List<Train> getAllTrains()
+	{
+		System.out.println("in get trains method");
+		List<Train> allTrains = AdminService.getTrains();
+		return allTrains;
+		
 		
 	}
 	

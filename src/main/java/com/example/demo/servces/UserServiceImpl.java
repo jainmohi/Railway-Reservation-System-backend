@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.userdao.*;
+import com.example.demo.daos.*;
 import com.example.demo.pojos.*;
 
 @Transactional

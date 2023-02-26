@@ -1,4 +1,4 @@
-package com.example.demo.userdao;
+package com.example.demo.daos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

@@ -2,11 +2,13 @@ package com.example.demo.servces;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.daos.AdminDao;
 import com.example.demo.pojos.Train;
-import com.example.demo.userdao.AdminDao;
 
 @Service
 public class AdminServiceImpl implements AdminService
@@ -26,7 +28,7 @@ public class AdminServiceImpl implements AdminService
 	@Override
 	public Train findTrainByName(String name) 
 	{
-		return AdminDao.findBytrainName( name);
+		return AdminDao.findByTrainName( name);
 		
 	}
 
@@ -35,6 +37,12 @@ public class AdminServiceImpl implements AdminService
 	{
 		AdminDao.deleteById(Id);
 		
+	}
+
+	@Override
+	public List<Train> getTrains() {
+		// TODO Auto-generated method stub
+		return AdminDao.findAll();
 	}
 
 	
