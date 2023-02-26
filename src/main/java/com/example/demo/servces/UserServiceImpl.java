@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.userdao.*;
-import com.example.demo.pojos.*;
+import com.example.demo.pojos.User;
+import com.example.demo.userdao.UserDao;
 
 @Transactional
 @Service
@@ -33,6 +33,23 @@ public User loginAuthentication(String password, String email) {
 	
 	return userdao.findByEmailAndPassword( email, password);
 }
-	
+
+
+@Override
+public User checkEmail(String email) {
+	User validuser=userdao.findByEmail(email);
+	return validuser;
+}
+
+
+@Override
+public User restPass(User validuser, String password) {
+	System.out.println("inside userservice");
+	System.out.println(validuser);
+	validuser.setPassword(password);
+	User persistentUser=userdao.save(validuser);
+	return persistentUser;
+}
+
 	
 }

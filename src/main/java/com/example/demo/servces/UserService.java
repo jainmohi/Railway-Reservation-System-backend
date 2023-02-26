@@ -9,4 +9,7 @@ public interface UserService
 	public String updateUserPasswordByEmail(String password, String email);
 	
 	public User loginAuthentication(String password,String email);
+
+	User checkEmail(String email);
+	User restPass(User validuser, String password);
 }

@@ -13,6 +13,7 @@ public interface UserDao extends JpaRepository<User, Long>
 {
 
 	User findByEmailAndPassword(String email,String password);
+	User findByEmail(String email);
 	
 	@Modifying
 	@Query("update User u set u.password=:password where u.email =:email")
