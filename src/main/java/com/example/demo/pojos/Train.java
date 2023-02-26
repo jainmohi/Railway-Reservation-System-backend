@@ -32,9 +32,6 @@ public class Train
 	@Column(name = "Train_name", length = 20)
 	private String trainName;
 
-	
-
-	
 	@Column(name = "Start_time", length = 20)
 private String startTime ;
 
