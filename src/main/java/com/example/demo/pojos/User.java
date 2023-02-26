@@ -49,7 +49,7 @@ public class User
 	private String lastName;
 	
 
-	@Column(length = 20,name="Email", unique = true)
+	@Column(length = 100,name="Email", unique = true)
 	private String email;
 	
 	@Column(name = "phone_no")
