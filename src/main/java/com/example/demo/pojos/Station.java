@@ -27,7 +27,7 @@ public class Station
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int Station_code;
+	private Long Station_code;
 
 	@Column(name = "Station_name", length = 30)
 	private String stationName;
