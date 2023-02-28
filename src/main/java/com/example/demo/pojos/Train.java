@@ -1,5 +1,6 @@
 package com.example.demo.pojos;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
@@ -18,6 +19,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
+
 public class Train 
 {
 	public Train ()
