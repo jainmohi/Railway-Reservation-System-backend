@@ -1,7 +1,7 @@
 package com.example.demo.pojos;
 
-import java.io.Serializable;
-import java.time.LocalTime;
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,6 +39,18 @@ private String startTime ;
 
 	@Column(name = "End_time", length = 20)
 private String endTime ;
+	
+	
+	@Column(name = "Start_Staion", length = 20)
+	private String startStaion ;
+	
+	@Column(name = "End_Staion", length = 20)
+	private String endStation ;
+	
+	@Column(name = "Distance")
+	private int distance ;
+	
+	
 	
 	
 }

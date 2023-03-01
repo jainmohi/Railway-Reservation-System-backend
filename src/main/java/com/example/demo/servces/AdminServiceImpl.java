@@ -1,48 +1,66 @@
 package com.example.demo.servces;
 
-
+import com.example.demo.daos.*;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.daos.AdminDao;
+import com.example.demo.daos.TrainDao;
 import com.example.demo.pojos.Train;
+import com.example.demo.pojos.User;
 
 @Service
 public class AdminServiceImpl implements AdminService
 {
 	
 	@Autowired
-	private AdminDao AdminDao;
+	private TrainDao TrainDao;
+	
+	@Autowired
+	private UserDao UserDao;
+	
+	
 
 	@Override
 	public Train addTrainDetail(Train train) 
 	{
 		
-		return AdminDao.save(train);
+		return TrainDao.save(train);
 		
 	}
 
 	@Override
 	public Train findTrainByName(String name) 
 	{
-		return AdminDao.findByTrainName( name);
+		return TrainDao.findByTrainName( name);
 		
 	}
 
 	@Override
 	public void removeTrainById(Long Id) 
 	{
-		AdminDao.deleteById(Id);
+		TrainDao.deleteById(Id);
 		
 	}
 
 	@Override
 	public List<Train> getTrains() {
-		// TODO Auto-generated method stub
-		return AdminDao.findAll();
+		
+		return TrainDao.findAll();
+	}
+
+	@Override
+	public Train updateTrainDetail(Train train) {
+		
+		return TrainDao.save(train);
+		
+	}
+
+	@Override
+	public List<User> getUser() {
+		return UserDao.findAll();
 	}
 
 	

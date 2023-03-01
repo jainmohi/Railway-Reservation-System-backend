@@ -7,28 +7,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Table(name = "Station")
-@Setter
 @Getter
+@Setter
 @ToString
-public class Station 
+@Entity
+@Table(name = "TrainFair")
+public class TrainFair 
 {
-
-	
-	public Station()
+	public TrainFair()
 	{
 		
 	}
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Station_code;
+	private Long Id;
 
-	@Column(name = "Station_name", length = 30)
-	private String stationName;
+	@Column(name = "class_Type", length = 10)
+	private String classType;
+
+	@Column(name = "Class_Fair")
+	private int classFair ;
+	
+
 }
