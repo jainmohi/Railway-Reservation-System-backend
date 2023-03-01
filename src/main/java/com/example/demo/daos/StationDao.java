@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import com.example.demo.pojos.Station;
 
 
-public interface PassengerDao extends JpaRepository<Station, Integer>
+public interface StationDao extends JpaRepository<Station, Integer>
 {
 	public Station findByStationName(String name);
 	
