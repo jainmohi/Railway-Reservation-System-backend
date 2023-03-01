@@ -5,6 +5,7 @@ package com.example.demo.servces;
 import java.util.List;
 
 import com.example.demo.pojos.Train;
+import com.example.demo.pojos.User;
 
 public interface AdminService
 {
@@ -15,5 +16,9 @@ public interface AdminService
 	public void removeTrainById(Long Id);
 
 	public List<Train> getTrains();
+	
+	public Train updateTrainDetail(Train train);
+	
+	public List<User> getUser();
 	
 }

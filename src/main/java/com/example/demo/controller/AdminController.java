@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.pojos.Train;
+import com.example.demo.pojos.User;
 import com.example.demo.servces.AdminService;
 
 @CrossOrigin
@@ -30,6 +34,18 @@ public class AdminController
 		System.out.println("In admin controller");
 	}
 	
+	@PostMapping("/updatetrain")
+	public ResponseEntity<?> updateTrain(@RequestBody Train train)
+	{
+		System.out.println("in updatetrain method");
+		
+	return new ResponseEntity<>(AdminService.updateTrainDetail(train), HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
 	@PostMapping("/addtrain")
 	public ResponseEntity<?> addTrain(@RequestBody Train train)
 	{
@@ -44,13 +60,13 @@ public class AdminController
 	}
 	
 	
-	@PostMapping("/removetrain")
-	public void removeTrain(@RequestBody Map<String,String> mp)
+	@DeleteMapping("/deletetrain/{id}")
+	public void removeTrain(@PathVariable Long id)
 	{
 		System.out.println("in removetrain method");
-		Train train = findTrainByName(mp.get("trainName"));
 		
-		AdminService.removeTrainById(train.getTrain_code());
+		
+		AdminService.removeTrainById(id);
 		
 	}
 	
@@ -60,6 +76,16 @@ public class AdminController
 		System.out.println("in get trains method");
 		List<Train> allTrains = AdminService.getTrains();
 		return allTrains;
+		
+		
+	}
+	
+	@GetMapping("/getuser")
+	public List<User> getAllUser()
+	{
+		System.out.println("in get user method");
+		List<User> allUser = AdminService.getUser();
+		return allUser;
 		
 		
 	}
