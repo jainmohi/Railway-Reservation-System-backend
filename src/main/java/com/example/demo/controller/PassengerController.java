@@ -27,9 +27,9 @@ public class PassengerController
 
 	
 	@PostMapping("/traindata")
-	public List<Train_Station_Timings> getTrainDetails(@RequestBody Map<String,String> mp)
+	public List<Train> getTrainDetails(@RequestBody Map<String,String> mp)
 	{
-		ArrayList<Train_Station_Timings> Finalist = new ArrayList<>();
+		ArrayList<Train> Finalist = new ArrayList<>();
 		Long Fromstaion = findStaionIdByName(mp.get("fromstation"));
 		Long Tostaion = findStaionIdByName(mp.get("tostation"));
 		
@@ -43,7 +43,7 @@ public class PassengerController
 			{
 				if(list1.getStation().getStation_code()==Tostaion)
 				{
-					Finalist.add(list1);
+					Finalist.add(list1.getTrain());
 				}
 				
 			}

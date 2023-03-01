@@ -13,7 +13,7 @@ import com.example.demo.pojos.Train_Station_Timings;
 public class PassengerServiceImpl implements PassengerService
 {
 	@Autowired
-	private PassengerDao PassengerDao;
+	private StationDao PassengerDao;
 	
 //	@Autowired
 //	private TrainStationDao TrainStationDao;
