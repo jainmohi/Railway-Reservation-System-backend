@@ -42,7 +42,7 @@ private String endTime ;
 	
 	
 	@Column(name = "Start_Staion", length = 20)
-	private String startStaion ;
+	private String startStation ;
 	
 	@Column(name = "End_Staion", length = 20)
 	private String endStation ;
