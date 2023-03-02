@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,10 +54,6 @@ public class AdminController
 	return new ResponseEntity<>(AdminService.updateTrainDetail(train), HttpStatus.OK);
 	}
 	
-	
-	
-	
-	
 	@PostMapping("/addtrain")
 	public ResponseEntity<?> addTrain(@RequestBody Train train)
 	{
@@ -94,10 +91,7 @@ public class AdminController
 	public void removeTrain(@PathVariable Long id)
 	{
 		System.out.println("in removetrain method");
-		
-		
 		AdminService.removeTrainById(id);
-		
 	}
 	
 	@GetMapping("/checktrainstatus/{id}")
@@ -117,9 +111,17 @@ public class AdminController
 	{
 		System.out.println("in get trains method");
 		List<Train> allTrains = AdminService.getTrains();
-		return allTrains;
-		
-		
+		return allTrains;	
+	}
+	
+	@GetMapping("/getTrain/{id}")
+	public Train getTrainById(@PathVariable int id)
+	{
+		System.out.println("in get trains method");
+		if(AdminService.getTrainById(id).isPresent())
+			return AdminService.getTrainById(id).get();
+		else
+			return null;
 	}
 	
 	@GetMapping("/getuser")
