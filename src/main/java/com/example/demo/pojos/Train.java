@@ -35,11 +35,13 @@ public class Train
 	private String trainName;
 
 	@Column(name = "Start_time", length = 20)
-private String startTime ;
+	private String startTime ;
 
 	@Column(name = "End_time", length = 20)
-private String endTime ;
+	private String endTime ;
 	
+	@Column(name = "Start_Station", length = 20)
+	private String startStation ;
 	
 	@Column(name = "Start_Staion", length = 20)
 	private String startStation ;
@@ -47,8 +49,8 @@ private String endTime ;
 	@Column(name = "End_Staion", length = 20)
 	private String endStation ;
 	
-	@Column(name = "Distance")
-	private int distance ;
+	@Column(name = "Distance",nullable=true)
+	private int distance;
 	
 	
 	
