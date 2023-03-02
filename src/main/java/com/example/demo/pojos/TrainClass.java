@@ -42,12 +42,18 @@ public class TrainClass
 
 	@Column(name = "Seat_Available")
 	private int seatAvailable ;
+	
+	
+	public TrainClass(String classType, int seatAvailable, long trainCode) {
+		
+		this.classType = classType;
+		this.seatAvailable = seatAvailable;
+		this.trainCode = trainCode;
+	}
 
-	
-	
-	@ManyToOne ( cascade = CascadeType.ALL)
-	@JoinColumn(name="train_code",nullable=false)
-	private Train train;
+
+	@Column(name="train_code")
+	private long trainCode;
 	
 	
 

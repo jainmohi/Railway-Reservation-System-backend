@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.daos.TrainDao;
 import com.example.demo.pojos.Train;
+import com.example.demo.pojos.TrainClass;
 import com.example.demo.pojos.User;
 
 @Service
@@ -20,6 +21,9 @@ public class AdminServiceImpl implements AdminService
 	
 	@Autowired
 	private UserDao UserDao;
+	
+	@Autowired
+	private TrainClassDao TrainClassDao;
 	
 	
 
@@ -61,6 +65,12 @@ public class AdminServiceImpl implements AdminService
 	@Override
 	public List<User> getUser() {
 		return UserDao.findAll();
+	}
+
+	@Override
+	public void addtrainclass(TrainClass Trainclass) {
+		
+		TrainClassDao.save(Trainclass);
 	}
 
 	
