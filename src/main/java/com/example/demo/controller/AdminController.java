@@ -57,6 +57,8 @@ public class AdminController
 	
 	
 	
+	
+	
 	@PostMapping("/addtrain")
 	public ResponseEntity<?> addTrain(@RequestBody Train train)
 	{
@@ -93,19 +95,17 @@ public class AdminController
 	@DeleteMapping("/deletetrain/{id}")
 	public void removeTrain(@PathVariable Long id)
 	{
-		System.out.println("in removetrain method");
-		
+		AdminService.deleteclasstrainbytrainid(id);
 		
 		AdminService.removeTrainById(id);
 		
 	}
 	
 	@GetMapping("/checktrainstatus/{id}")
-	public void checkAllTrainStatus(@PathVariable Long id)
+	public List<TrainClass> checkAllTrainBookingStatus(@PathVariable Long id)
 	{
 		System.out.println("in removetrain method");
-		
-		
+		return AdminService.getTrainBookingStatus(id);
 		
 		
 	}
