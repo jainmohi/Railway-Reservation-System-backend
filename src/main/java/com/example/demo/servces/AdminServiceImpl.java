@@ -87,6 +87,13 @@ public class AdminServiceImpl implements AdminService
 		return TrainClassDao.getBookingStatus(id);
 		
 	}
+	
+	@Override
+	public Optional<Train> getTrainById(long id) {
+		// TODO Auto-generated method stub
+		return TrainDao.findById(id);
+	}
+	
 
 	
 
