@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.daos.TrainClassDao;
+import com.example.demo.daos.TrainDao;
 import com.example.demo.pojos.Train;
+import com.example.demo.pojos.TrainClass;
 import com.example.demo.pojos.User;
 import com.example.demo.servces.AdminService;
 
@@ -29,6 +32,14 @@ public class AdminController
 	
 	@Autowired
 	private AdminService AdminService;
+	
+	@Autowired
+	private TrainDao trainDao;
+	
+	@Autowired
+	private TrainClassDao trainClassDao;
+	
+
 
 	public AdminController()
 	{
@@ -43,11 +54,37 @@ public class AdminController
 	return new ResponseEntity<>(AdminService.updateTrainDetail(train), HttpStatus.OK);
 	}
 	
+	
+	
+	
+	
+	
+	
 	@PostMapping("/addtrain")
 	public ResponseEntity<?> addTrain(@RequestBody Train train)
 	{
 		System.out.println("in addtrain method");
-		return new ResponseEntity<>(AdminService.addTrainDetail(train), HttpStatus.OK);
+		
+		Train t1 = AdminService.addTrainDetail(train);
+		
+		
+//		Train t = trainDao.findById(t1.getTrain_code()).get();
+//		System.out.println(t);
+		Long id = t1.getTrain_code();
+		
+		
+		TrainClass  c1 = new TrainClass("Class-A",90,id);
+		
+		
+		trainClassDao.save(c1);
+		TrainClass  c2 = new TrainClass("Class-B",90,id);
+		
+		trainClassDao.save(c2);
+		TrainClass  c3 = new TrainClass("Class-C",90,id);
+		
+		trainClassDao.save(c3);
+		
+		return new ResponseEntity<>(t1,HttpStatus.OK);
 	}
 	
 	public Train findTrainByName(String name)
@@ -59,9 +96,21 @@ public class AdminController
 	@DeleteMapping("/deletetrain/{id}")
 	public void removeTrain(@PathVariable Long id)
 	{
-		System.out.println("in removetrain method");
+		AdminService.deleteclasstrainbytrainid(id);
+		
 		AdminService.removeTrainById(id);
 	}
+	
+	@GetMapping("/checktrainstatus/{id}")
+	public List<TrainClass> checkAllTrainBookingStatus(@PathVariable Long id)
+	{
+		System.out.println("in removetrain method");
+		return AdminService.getTrainBookingStatus(id);
+		
+		
+	}
+	
+	
 	
 	@GetMapping("/trainsList")
 	public List<Train> getAllTrains()

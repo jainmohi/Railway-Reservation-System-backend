@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.pojos.Train;
+import com.example.demo.pojos.TrainClass;
 import com.example.demo.pojos.User;
 
 public interface AdminService
@@ -23,5 +24,11 @@ public interface AdminService
 	public List<User> getUser();
 
 	public Optional<Train> getTrainById(long id);
+	
+	public void addtrainclass(TrainClass Trainclass );
+	
+	public void deleteclasstrainbytrainid(Long id);
+	
+	public List<TrainClass> getTrainBookingStatus(Long id);
 	
 }
