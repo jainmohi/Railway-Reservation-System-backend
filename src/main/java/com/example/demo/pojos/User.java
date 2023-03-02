@@ -64,6 +64,4 @@ public class User
 	@NotNull(message = "Role must be supplied")
 	private Role role ;
 	
-	
-	
 }

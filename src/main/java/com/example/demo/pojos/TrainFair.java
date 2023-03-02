@@ -34,5 +34,4 @@ public class TrainFair
 	@Column(name = "Class_Fair")
 	private int classFair ;
 	
-
 }

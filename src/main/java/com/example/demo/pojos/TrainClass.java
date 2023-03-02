@@ -43,8 +43,6 @@ public class TrainClass
 	@Column(name = "Seat_Available")
 	private int seatAvailable ;
 
-	
-	
 	@ManyToOne ( cascade = CascadeType.ALL)
 	@JoinColumn(name="train_code",nullable=false)
 	private Train train;

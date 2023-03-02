@@ -3,6 +3,7 @@ package com.example.demo.servces;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.pojos.Train;
 import com.example.demo.pojos.User;
@@ -20,5 +21,7 @@ public interface AdminService
 	public Train updateTrainDetail(Train train);
 	
 	public List<User> getUser();
+
+	public Optional<Train> getTrainById(long id);
 	
 }

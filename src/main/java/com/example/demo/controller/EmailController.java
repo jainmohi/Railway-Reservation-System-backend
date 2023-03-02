@@ -57,7 +57,8 @@ public class EmailController{
 			}else {
 				resultdto=new resultDto("failure",otp);
 			}
-		}else{
+		}
+		else{
 			System.out.println("Ohhh sorrry ");
 		}
 				 

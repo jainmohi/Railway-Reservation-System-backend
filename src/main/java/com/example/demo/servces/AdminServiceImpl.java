@@ -3,6 +3,7 @@ package com.example.demo.servces;
 import com.example.demo.daos.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,6 +62,12 @@ public class AdminServiceImpl implements AdminService
 	@Override
 	public List<User> getUser() {
 		return UserDao.findAll();
+	}
+
+	@Override
+	public Optional<Train> getTrainById(long id) {
+		// TODO Auto-generated method stub
+		return TrainDao.findById(id);
 	}
 
 	
