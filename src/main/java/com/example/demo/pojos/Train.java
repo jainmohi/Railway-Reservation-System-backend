@@ -43,7 +43,10 @@ public class Train
 	@Column(name = "Start_Station", length = 20)
 	private String startStation ;
 	
-	@Column(name = "End_Station", length = 20)
+	@Column(name = "Start_Staion", length = 20)
+	private String startStation ;
+	
+	@Column(name = "End_Staion", length = 20)
 	private String endStation ;
 	
 	@Column(name = "Distance",nullable=true)
