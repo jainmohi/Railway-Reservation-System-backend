@@ -29,4 +29,6 @@ public interface AdminService
 	
 	public void deleteclasstrainbytrainid(Long id);
 	
+	public List<TrainClass> getTrainBookingStatus(Long id);
+	
 }
