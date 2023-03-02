@@ -44,7 +44,7 @@ public class Train
 	private String startStation ;
 	
 	@Column(name = "End_Station", length = 20)
-	private String endStation ;
+	private String endStation;
 	
 	@Column(name = "Distance",nullable=true)
 	private int distance;
