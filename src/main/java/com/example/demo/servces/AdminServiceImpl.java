@@ -1,6 +1,7 @@
 package com.example.demo.servces;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -86,6 +87,13 @@ public class AdminServiceImpl implements AdminService
 		return TrainClassDao.getBookingStatus(id);
 		
 	}
+	
+	@Override
+	public Optional<Train> getTrainById(long id) {
+		// TODO Auto-generated method stub
+		return TrainDao.findById(id);
+	}
+	
 
 	
 
