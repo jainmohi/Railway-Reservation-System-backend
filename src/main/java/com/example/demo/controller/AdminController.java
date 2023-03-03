@@ -39,8 +39,6 @@ public class AdminController
 	@Autowired
 	private TrainClassDao trainClassDao;
 	
-
-
 	public AdminController()
 	{
 		System.out.println("In admin controller");
@@ -53,12 +51,6 @@ public class AdminController
 		
 	return new ResponseEntity<>(AdminService.updateTrainDetail(train), HttpStatus.OK);
 	}
-	
-	
-	
-	
-	
-	
 	
 	@PostMapping("/addtrain")
 	public ResponseEntity<?> addTrain(@RequestBody Train train)
@@ -75,13 +67,10 @@ public class AdminController
 		
 		TrainClass  c1 = new TrainClass("Class-A",90,id);
 		
-		
 		trainClassDao.save(c1);
 		TrainClass  c2 = new TrainClass("Class-B",90,id);
-		
 		trainClassDao.save(c2);
 		TrainClass  c3 = new TrainClass("Class-C",90,id);
-		
 		trainClassDao.save(c3);
 		
 		return new ResponseEntity<>(t1,HttpStatus.OK);
@@ -101,16 +90,12 @@ public class AdminController
 		AdminService.removeTrainById(id);
 	}
 	
-	@GetMapping("/checktrainstatus/{id}")
-	public List<TrainClass> checkAllTrainBookingStatus(@PathVariable Long id)
+	@GetMapping("/getClassesByTrain/{id}")
+	public List<TrainClass> getClassesByTrain(@PathVariable Long id)
 	{
-		System.out.println("in removetrain method");
-		return AdminService.getTrainBookingStatus(id);
-		
-		
+		System.out.println("in getClassesByTrain method");
+		return AdminService.getClassesByTrain(id);
 	}
-	
-	
 	
 	@GetMapping("/trainsList")
 	public List<Train> getAllTrains()
@@ -135,9 +120,7 @@ public class AdminController
 	{
 		System.out.println("in get user method");
 		List<User> allUser = AdminService.getUser();
-		return allUser;
-		
-		
+		return allUser;	
 	}
 	
 	

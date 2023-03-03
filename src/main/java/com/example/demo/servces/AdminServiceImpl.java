@@ -27,14 +27,10 @@ public class AdminServiceImpl implements AdminService
 	@Autowired
 	private TrainClassDao TrainClassDao;
 	
-	
-
 	@Override
 	public Train addTrainDetail(Train train) 
 	{
-		
-		return TrainDao.save(train);
-		
+		return TrainDao.save(train);	
 	}
 
 	@Override
@@ -83,9 +79,14 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public List<TrainClass> getTrainBookingStatus(Long id) {
+	public List<TrainClass> getClassesByTrain(Long id) {
 		return TrainClassDao.getBookingStatus(id);
 		
+	}
+
+	@Override
+	public Optional<Train> getTrainById(long id) {
+		return TrainDao.findById(id);
 	}
 
 	

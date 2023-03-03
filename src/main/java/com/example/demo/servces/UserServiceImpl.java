@@ -1,5 +1,7 @@
 package com.example.demo.servces;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,43 +15,48 @@ public class UserServiceImpl implements UserService
 {
 	@Autowired
 	private UserDao userdao;
-
-public User userRegister(User user){
+	
+	@Autowired
+	private TrainDao trainDao;
+	
+	public User userRegister(User user){
+			return userdao.save(user);
+		}
+	
+	@Override
+	public String updateUserPasswordByEmail(String password, String email) {
 		
-		return userdao.save(user);
+		userdao.updateUserPasswordByEmail(password, email);
+		return "Password updated successfully";
+	
+	}
+	
+	@Override
+	public User loginAuthentication(String password, String email) {
+		
+		return userdao.findByEmailAndPassword( email, password);
+	}
+	
+	@Override
+	public User checkEmail(String email) {
+		User validuser=userdao.findByEmail(email);
+		return validuser;
+	}
+	
+	@Override
+	public User restPass(User validuser, String password) {
+		System.out.println("inside userservice");
+		System.out.println(validuser);
+		validuser.setPassword(password);
+		User persistentUser=userdao.save(validuser);
+		return persistentUser;
+	}
+	
+	@Override
+	public List<Train> getTrainsByStations(String startStation, String endStation) {
+		return trainDao.findByStartStationAndEndStation(startStation, endStation);
 	}
 
-@Override
-public String updateUserPasswordByEmail(String password, String email) {
-	
-	userdao.updateUserPasswordByEmail(password, email);
-	return "Password updated successfully";
-	
-	
-}
-
-@Override
-public User loginAuthentication(String password, String email) {
-	
-	return userdao.findByEmailAndPassword( email, password);
-}
-
-
-@Override
-public User checkEmail(String email) {
-	User validuser=userdao.findByEmail(email);
-	return validuser;
-}
-
-
-@Override
-public User restPass(User validuser, String password) {
-	System.out.println("inside userservice");
-	System.out.println(validuser);
-	validuser.setPassword(password);
-	User persistentUser=userdao.save(validuser);
-	return persistentUser;
-}
 
 	
 }

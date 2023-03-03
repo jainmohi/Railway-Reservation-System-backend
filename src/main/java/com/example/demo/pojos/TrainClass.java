@@ -51,7 +51,6 @@ public class TrainClass
 		this.trainCode = trainCode;
 	}
 
-
 	@Column(name="train_code")
 	private long trainCode;
 	
