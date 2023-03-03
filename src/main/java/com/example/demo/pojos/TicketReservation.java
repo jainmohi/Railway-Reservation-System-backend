@@ -32,7 +32,7 @@ public class TicketReservation
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long PNRNO;
 
-	@Column(name = "Date", length = 10)
+	@Column(name = "Date")
 	private LocalDate Date;
 
 	
