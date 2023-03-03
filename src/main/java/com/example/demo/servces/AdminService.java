@@ -25,6 +25,8 @@ public interface AdminService
 
 	public Optional<Train> getTrainById(long id);
 	
+	public Optional<Train> getTrainById(long id);
+	
 	public void addtrainclass(TrainClass Trainclass );
 	
 	public void deleteclasstrainbytrainid(Long id);

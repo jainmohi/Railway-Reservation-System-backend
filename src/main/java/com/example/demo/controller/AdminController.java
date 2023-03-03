@@ -114,6 +114,16 @@ public class AdminController
 		else
 			return null;
 	}
+	@GetMapping("/getTrain/{id}")
+	public Train getTrainById(@PathVariable int id)
+	{
+		System.out.println("in get trains method");
+		if(AdminService.getTrainById(id).isPresent())
+			return AdminService.getTrainById(id).get();
+		else
+			return null;
+	}
+
 	
 	@GetMapping("/getuser")
 	public List<User> getAllUser()
