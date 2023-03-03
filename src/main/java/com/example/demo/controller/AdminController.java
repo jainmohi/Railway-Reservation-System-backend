@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.daos.TrainClassDao;
 import com.example.demo.daos.TrainDao;
+import com.example.demo.pojos.Role;
 import com.example.demo.pojos.Train;
 import com.example.demo.pojos.TrainClass;
 import com.example.demo.pojos.User;
@@ -70,16 +72,25 @@ public class AdminController
 //		Train t = trainDao.findById(t1.getTrain_code()).get();
 //		System.out.println(t);
 		Long id = t1.getTrain_code();
+		int distance = t1.getDistance();
+		
+		int classAcalculatedfair = 4*distance;
 		
 		
-		TrainClass  c1 = new TrainClass("Class-A",90,id);
+		TrainClass  c1 = new TrainClass("Class-A",90,classAcalculatedfair,id);
 		
 		
 		trainClassDao.save(c1);
-		TrainClass  c2 = new TrainClass("Class-B",90,id);
+		
+		int classBcalculatedfair = 3*distance;
+		
+		TrainClass  c2 = new TrainClass("Class-B",90,classBcalculatedfair,id);
 		
 		trainClassDao.save(c2);
-		TrainClass  c3 = new TrainClass("Class-C",90,id);
+		
+		
+		int classCcalculatedfair = 2*distance;
+		TrainClass  c3 = new TrainClass("Class-C",90,classCcalculatedfair,id);
 		
 		trainClassDao.save(c3);
 		
@@ -137,7 +148,19 @@ public class AdminController
 	{
 		System.out.println("in get user method");
 		List<User> allUser = AdminService.getUser();
-		return allUser;
+		List<User> onlyUser = new ArrayList<>();
+		for(User u : allUser)
+		{
+			
+			if(u.getRole()==Role.USER)
+			{
+				onlyUser.add(u);
+				
+			}
+		}
+		
+		
+		return onlyUser;
 		
 		
 	}

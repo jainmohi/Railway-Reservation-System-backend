@@ -31,4 +31,6 @@ public interface AdminService
 	
 	public List<TrainClass> getTrainBookingStatus(Long id);
 	
+	public List<TrainClass> gettrainclassdetailsbyid(Long id);
+	
 }

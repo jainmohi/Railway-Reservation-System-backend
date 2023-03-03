@@ -43,11 +43,17 @@ public class TrainClass
 	@Column(name = "Seat_Available")
 	private int seatAvailable ;
 	
+	@Column(name = "Fair")
+	private int Fair ;
 	
-	public TrainClass(String classType, int seatAvailable, long trainCode) {
-		
+
+
+
+	public TrainClass(String classType, int seatAvailable, int fair, long trainCode) {
+		super();
 		this.classType = classType;
 		this.seatAvailable = seatAvailable;
+		Fair = fair;
 		this.trainCode = trainCode;
 	}
 

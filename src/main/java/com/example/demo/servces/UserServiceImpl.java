@@ -1,5 +1,7 @@
 package com.example.demo.servces;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,10 @@ public class UserServiceImpl implements UserService
 {
 	@Autowired
 	private UserDao userdao;
+	
+	@Autowired
+	private TrainDao trainDao;
+
 
 public User userRegister(User user){
 		
@@ -49,6 +55,19 @@ public User restPass(User validuser, String password) {
 	validuser.setPassword(password);
 	User persistentUser=userdao.save(validuser);
 	return persistentUser;
+}
+
+@Override
+public List<Train> getTrainsByStations(String startStation, String endStation) {
+	return trainDao.findByStartStationAndEndStation(startStation, endStation);
+}
+
+
+
+@Override
+public void deleteuserbyid(Long id) {
+	
+	userdao.deleteById(id);
 }
 
 	

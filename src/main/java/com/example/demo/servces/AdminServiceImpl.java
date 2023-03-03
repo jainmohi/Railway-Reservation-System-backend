@@ -94,6 +94,12 @@ public class AdminServiceImpl implements AdminService
 		return TrainDao.findById(id);
 	}
 	
+	public List<TrainClass> gettrainclassdetailsbyid(Long id)
+	{
+		return TrainClassDao.getBookingStatus(id);
+		
+	}
+	
 
 	
 
