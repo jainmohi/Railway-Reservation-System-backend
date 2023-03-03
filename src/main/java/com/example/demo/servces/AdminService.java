@@ -33,4 +33,8 @@ public interface AdminService
 	
 	public List<TrainClass> gettrainclassdetailsbyid(Long id);
 	
+	public List<TrainClass> getClassesByTrain(Long id);
+
+
+	
 }

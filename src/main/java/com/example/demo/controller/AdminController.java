@@ -55,6 +55,14 @@ public class AdminController
 	return new ResponseEntity<>(AdminService.updateTrainDetail(train), HttpStatus.OK);
 	}
 	
+	@GetMapping("/getClassesByTrain/{id}")
+	public List<TrainClass> getClassesByTrain(@PathVariable Long id)
+	{
+		System.out.println("in getClassesByTrain method");
+		return AdminService.getClassesByTrain(id);
+	}
+
+	
 	
 	
 	

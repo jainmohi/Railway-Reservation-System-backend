@@ -99,7 +99,12 @@ public class AdminServiceImpl implements AdminService
 		return TrainClassDao.getBookingStatus(id);
 		
 	}
-	
+	@Override
+	public List<TrainClass> getClassesByTrain(Long id) {
+		return TrainClassDao.getBookingStatus(id);
+		
+	}
+
 
 	
 
